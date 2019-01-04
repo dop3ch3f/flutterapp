@@ -9,9 +9,15 @@ class Login extends StatefulWidget {
 class LoginState extends State<Login> {
   Widget build(context) {
     return new Scaffold(
-      body: new Container(
+      body: Container(
         margin: EdgeInsets.all(20.0),
-        child: Text('Login Screen'),
+        child: Form(
+          child: Column(
+            children: <Widget>[
+              
+            ],
+          ),
+        ),
       ),
     );
   }

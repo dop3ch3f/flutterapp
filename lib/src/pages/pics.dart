@@ -44,11 +44,11 @@ class PicsState extends State<Pics> {
         child: Icon(Icons.add),
       ),
       bottomNavigationBar: BottomAppBar(
-        child: new RaisedButton(
+        child: RaisedButton(
             onPressed: () {
               button1(context);
             },
-            child: new Text("Go to Login Form")),
+            child: Text("Go to Login Form")),
       ),
     );
   }
