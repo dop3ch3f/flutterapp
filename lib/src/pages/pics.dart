@@ -29,16 +29,16 @@ class PicsState extends State<Pics> {
     });
   }
 
-  void button1(BuildContext context) {
+  Future routeToLogin(BuildContext context) {
     // go to login route
-    Navigator.of(context).pushNamed('/login');
+    return Navigator.of(context).pushNamed('/login');
   }
 
   // main widget build method
   Widget build(context) {
     return new Scaffold(
       body: ImageList(images),
-      appBar: AppBar(title: Text('Lets see some images!')),
+      appBar: AppBar(title: Text('Home')),
       floatingActionButton: FloatingActionButton(
         onPressed: fetchImage,
         child: Icon(Icons.add),
@@ -46,9 +46,9 @@ class PicsState extends State<Pics> {
       bottomNavigationBar: BottomAppBar(
         child: RaisedButton(
             onPressed: () {
-              button1(context);
+              routeToLogin(context);
             },
-            child: Text("Go to Login Form")),
+            child: Text("Login")),
       ),
     );
   }

@@ -8,7 +8,7 @@ class App extends StatelessWidget {
     return MaterialApp(
       home: new Pics(),
       routes: {
-        '/pics': (BuildContext context) => new Pics(),
+        '/home': (BuildContext context) => new Pics(),
         '/login': (BuildContext context) => new Login(),
       },
     );
