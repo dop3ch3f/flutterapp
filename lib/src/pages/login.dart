@@ -27,7 +27,12 @@ class LoginState extends State<Login> {
     );
   }
 
-  Widget submitButton() {}
+  Widget submitButton() {
+    return RaisedButton(
+      child: Text('Sign in'),
+      onPressed: () {},
+    );
+  }
 
   Future routeToHome(BuildContext context) {
     // go to login route
@@ -43,7 +48,7 @@ class LoginState extends State<Login> {
             children: [
               emailField(),
               passwordField(),
-              // submitButton(),
+              submitButton(),
             ],
           ),
         ),
