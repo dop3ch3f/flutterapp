@@ -29,6 +29,7 @@ class LoginState extends State<Login> {
 
   Widget submitButton() {
     return RaisedButton(
+      color: Colors.blue,
       child: Text('Sign in'),
       onPressed: () {},
     );
@@ -47,7 +48,9 @@ class LoginState extends State<Login> {
           child: Column(
             children: [
               emailField(),
+              Container(margin: EdgeInsets.only(top: 25.0)),
               passwordField(),
+              Container(margin: EdgeInsets.only(top: 25.0)),
               submitButton(),
             ],
           ),
