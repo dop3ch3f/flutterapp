@@ -17,7 +17,15 @@ class LoginState extends State<Login> {
     );
   }
 
-  Widget passwordField() {}
+  Widget passwordField() {
+    return TextFormField(
+      obscureText: true,
+      decoration: InputDecoration(
+        labelText: 'Password',
+        hintText: 'Password',
+      ),
+    );
+  }
 
   Widget submitButton() {}
 
@@ -34,7 +42,7 @@ class LoginState extends State<Login> {
           child: Column(
             children: [
               emailField(),
-              // passwordField(),
+              passwordField(),
               // submitButton(),
             ],
           ),
