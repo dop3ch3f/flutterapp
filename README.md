@@ -1,2 +1,8 @@
-# flutterapp
-learning flutter with this repo
+# pics
+
+A new Flutter project.
+
+## Getting Started
+
+For help getting started with Flutter, view our online
+[documentation](https://flutter.io/).
