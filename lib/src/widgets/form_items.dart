@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import '../blocs/form_bloc.dart';
+
 
 class FormItems {
-  Widget emailField() {
+  Widget emailField(bloc) {
     return StreamBuilder(
       builder: (context, snapshot) {
         return new TextField(
@@ -19,7 +19,7 @@ class FormItems {
     );
   }
 
-  Widget passwordField() {
+  Widget passwordField(bloc) {
     return StreamBuilder(
       builder: (context, snapshot) {
         return new TextField(
@@ -32,7 +32,7 @@ class FormItems {
           ),
         );
       },
-      stream: bloc.email,
+      stream: bloc.password,
     );
   }
 

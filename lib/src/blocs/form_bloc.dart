@@ -20,4 +20,4 @@ class Bloc with ValidationMixin {
   }
 }
 
-final bloc = Bloc();
+// final bloc = Bloc();
