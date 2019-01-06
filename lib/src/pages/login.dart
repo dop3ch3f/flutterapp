@@ -8,8 +8,6 @@ class Login extends StatefulWidget {
 }
 
 class LoginState extends State<Login> {
-  final formKey = GlobalKey<FormState>();
-
   routeToHome(BuildContext context) {
     // go to login route
     // return Navigator.of(context).pushNamed('/home');
@@ -26,18 +24,30 @@ class LoginState extends State<Login> {
             Container(margin: EdgeInsets.only(top: 25.0)),
             FormItems().passwordField(),
             Container(margin: EdgeInsets.only(top: 35.0)),
-            FormItems().submitButton(formKey),
+            FormItems().submitButton(),
           ],
         ),
       ),
       appBar: AppBar(title: Text('Signin to your Account')),
       bottomNavigationBar: BottomAppBar(
-        child: RaisedButton(
+          child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          RaisedButton(
+            color: Colors.blue,
             onPressed: () {
               routeToHome(context);
             },
-            child: Text("Home")),
-      ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Icon(Icons.arrow_back),
+                Text("Back", style: TextStyle(color: Colors.white))
+              ],
+            ),
+          ),
+        ],
+      )),
     );
   }
 }

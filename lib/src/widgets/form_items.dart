@@ -1,47 +1,46 @@
 import 'package:flutter/material.dart';
-import '../mixins/validation_mixin.dart';
+import '../blocs/form_bloc.dart';
 
-class FormItems with ValidationMixin {
-  String email = "";
-  String password = "";
-
+class FormItems {
   Widget emailField() {
-    return new TextField(
-      keyboardType: TextInputType.emailAddress,
-      decoration: InputDecoration(
-        labelText: 'Email Address',
-        hintText: 'any@any.com',
-        errorText: '',
-      ),
+    return StreamBuilder(
+      builder: (context, snapshot) {
+        return new TextField(
+          onChanged: bloc.changeEmail,
+          keyboardType: TextInputType.emailAddress,
+          decoration: InputDecoration(
+            labelText: 'Email Address',
+            hintText: 'any@any.com',
+            errorText: snapshot.error,
+          ),
+        );
+      },
+      stream: bloc.email,
     );
   }
 
   Widget passwordField() {
-    return TextField(
-      obscureText: true,
-      decoration: InputDecoration(
-        labelText: 'Password',
-        hintText: 'Password',
-        errorText: '',
-      ),
+    return StreamBuilder(
+      builder: (context, snapshot) {
+        return new TextField(
+          onChanged: bloc.changePassword,
+          obscureText: true,
+          decoration: InputDecoration(
+            labelText: 'Password',
+            hintText: 'Password',
+            errorText: snapshot.error,
+          ),
+        );
+      },
+      stream: bloc.email,
     );
   }
 
-  void validateAll(formKey) {
-    if (formKey.currentState.validate()) {
-      formKey.currentState.save();
-      print('Submitting $this.email and $this.password');
-    }
-    return null;
-  }
-
-  Widget submitButton(formKey) {
+  Widget submitButton() {
     return RaisedButton(
       color: Colors.blue,
-      child: Text('Login'),
-      onPressed: () {
-        return validateAll(formKey);
-      },
+      child: Text('Login', style: TextStyle(color: Colors.white)),
+      onPressed: () {},
     );
   }
 }

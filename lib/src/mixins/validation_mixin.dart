@@ -1,15 +1,19 @@
-class ValidationMixin {
-  String validateEmail(String value) {
-    if (!value.contains('@') && !value.contains('.com')) {
-      return 'Please enter a valid email';
-    }
-    return null;
-  }
+import 'dart:async';
 
-  String validatePassword(String value) {
-    if (value.length < 6) {
-      return 'Password must be atleast 6 characters';
+class ValidationMixin {
+  final validateEmail =
+      StreamTransformer<String, String>.fromHandlers(handleData: (email, sink) {
+    if (email.contains('@')) {
+      return sink.add(email);
     }
-    return null;
-  }
+    return sink.addError("Enter a valid email");
+  });
+
+  final validatePassword = StreamTransformer<String, String>.fromHandlers(
+      handleData: (password, sink) {
+    if (password.length > 6) {
+      return sink.add(password);
+    }
+    return sink.addError("Password must be greater than 6");
+  });
 }

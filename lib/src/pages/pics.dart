@@ -44,12 +44,17 @@ class PicsState extends State<Pics> {
         child: Icon(Icons.add),
       ),
       bottomNavigationBar: BottomAppBar(
-        child: RaisedButton(
-            onPressed: () {
-              routeToLogin(context);
-            },
-            child: Text("Login")),
-      ),
+          child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          RaisedButton(
+              color: Colors.blue,
+              onPressed: () {
+                routeToLogin(context);
+              },
+              child: Text("Login", style: TextStyle(color: Colors.white))),
+        ],
+      )),
     );
   }
 }
