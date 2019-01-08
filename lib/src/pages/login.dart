@@ -5,8 +5,7 @@ import '../blocs/form_provider.dart';
 class Login extends StatelessWidget with FormItems {
   routeToHome(BuildContext context) {
     // go to login route
-    return Navigator.of(context).pushNamed('/home');
-    // return Navigator.of(context).pop(true);
+    return Navigator.of(context).pushNamed('/pics');
   }
 
   Widget build(context) {
@@ -20,23 +19,11 @@ class Login extends StatelessWidget with FormItems {
             Container(margin: EdgeInsets.only(top: 25.0)),
             passwordField(bloc),
             Container(margin: EdgeInsets.only(top: 35.0)),
-            submitButton(bloc, routeToHome(context)),
+            submitButton(bloc, routeToHome),
           ],
         ),
       ),
-      appBar: AppBar(title: Text('Signin to your Account')),
-      // bottomNavigationBar: BottomAppBar(
-      //     child: Row(
-      //   mainAxisAlignment: MainAxisAlignment.center,
-      //   children: <Widget>[
-      //     RaisedButton(
-      //         color: Colors.blue,
-      //         onPressed: () {
-      //           routeToHome(context);
-      //         },
-      //         child: Text("Back", style: TextStyle(color: Colors.white))),
-      //   ],
-      // )),
+      appBar: AppBar(title: Text('Welcome')),
     );
   }
 }

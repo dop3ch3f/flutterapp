@@ -44,7 +44,7 @@ class FormItems {
           onPressed: snapshot.hasData
               ? () {
                   bloc.submit();
-                  routeFunc(context);
+                  return routeFunc(context);
                 }
               : null,
         );

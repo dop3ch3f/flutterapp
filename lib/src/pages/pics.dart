@@ -29,9 +29,9 @@ class PicsState extends State<Pics> {
     });
   }
 
-  Future routeToLogin(BuildContext context) {
+  Future routeToAnimation(BuildContext context) {
     // go to login route
-    return Navigator.of(context).pushNamed('/login');
+    return Navigator.of(context).pushNamed('/animation_page');
   }
 
   // main widget build method
@@ -50,9 +50,10 @@ class PicsState extends State<Pics> {
           RaisedButton(
               color: Colors.blue,
               onPressed: () {
-                routeToLogin(context);
+                routeToAnimation(context);
               },
-              child: Text("Log Out", style: TextStyle(color: Colors.white))),
+              child: Text("Checkout an Animation",
+                  style: TextStyle(color: Colors.white))),
         ],
       )),
     );

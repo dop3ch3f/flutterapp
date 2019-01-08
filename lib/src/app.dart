@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import './pages/pics.dart';
 import './pages/login.dart';
+import './pages/animation_page.dart';
 import './blocs/form_provider.dart';
 
 class App extends StatelessWidget {
@@ -10,8 +11,9 @@ class App extends StatelessWidget {
       child: MaterialApp(
         home: new Login(),
         routes: {
-          '/home': (BuildContext context) => new Pics(),
+          '/pics': (BuildContext context) => new Pics(),
           '/login': (BuildContext context) => new Login(),
+          '/animation_page': (BuildContext context) => new AnimationPage(),
         },
       ),
     );
