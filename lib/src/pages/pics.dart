@@ -52,7 +52,7 @@ class PicsState extends State<Pics> {
               onPressed: () {
                 routeToLogin(context);
               },
-              child: Text("Login", style: TextStyle(color: Colors.white))),
+              child: Text("Log Out", style: TextStyle(color: Colors.white))),
         ],
       )),
     );

@@ -35,16 +35,16 @@ class FormItems {
     );
   }
 
-  Widget submitButton(bloc) {
+  Widget submitButton(bloc, routeFunc) {
     return StreamBuilder(
       builder: (context, snapshot) {
-        print(snapshot.data);
         return new RaisedButton(
           color: Colors.blue,
           child: Text('Login', style: TextStyle(color: Colors.white)),
           onPressed: snapshot.hasData
               ? () {
-                  print(snapshot.data);
+                  bloc.submit();
+                  routeFunc(context);
                 }
               : null,
         );

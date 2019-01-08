@@ -8,7 +8,7 @@ class App extends StatelessWidget {
   Widget build(context) {
     return FormProvider(
       child: MaterialApp(
-        home: new Pics(),
+        home: new Login(),
         routes: {
           '/home': (BuildContext context) => new Pics(),
           '/login': (BuildContext context) => new Login(),
