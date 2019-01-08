@@ -4,16 +4,21 @@ class ValidationMixin {
   final validateEmail =
       StreamTransformer<String, String>.fromHandlers(handleData: (email, sink) {
     if (email.contains('@')) {
-      return sink.add(email);
+      print(email);
+      sink.add(email);
+    } else {
+      sink.addError("Enter a valid email address");
     }
-    return sink.addError("Enter a valid email");
+    ;
   });
 
   final validatePassword = StreamTransformer<String, String>.fromHandlers(
       handleData: (password, sink) {
     if (password.length > 6) {
-      return sink.add(password);
+      print(password);
+      sink.add(password);
+    } else {
+      sink.addError("Password must be greater than 6");
     }
-    return sink.addError("Password must be greater than 6");
   });
 }

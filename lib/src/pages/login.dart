@@ -20,7 +20,7 @@ class Login extends StatelessWidget with FormItems {
             Container(margin: EdgeInsets.only(top: 25.0)),
             passwordField(bloc),
             Container(margin: EdgeInsets.only(top: 35.0)),
-            submitButton(),
+            submitButton(bloc),
           ],
         ),
       ),

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class FormItems {
   Widget emailField(bloc) {
     return StreamBuilder(
@@ -36,11 +35,21 @@ class FormItems {
     );
   }
 
-  Widget submitButton() {
-    return RaisedButton(
-      color: Colors.blue,
-      child: Text('Login', style: TextStyle(color: Colors.white)),
-      onPressed: () {},
+  Widget submitButton(bloc) {
+    return StreamBuilder(
+      builder: (context, snapshot) {
+        print(snapshot.data);
+        return new RaisedButton(
+          color: Colors.blue,
+          child: Text('Login', style: TextStyle(color: Colors.white)),
+          onPressed: snapshot.hasData
+              ? () {
+                  print(snapshot.data);
+                }
+              : null,
+        );
+      },
+      stream: bloc.submitValid,
     );
   }
 }
