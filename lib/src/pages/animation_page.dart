@@ -79,6 +79,11 @@ class AnimationPageState extends State<AnimationPage>
     }
   }
 
+  Future routeToNewsList(BuildContext context) {
+    // go to login route
+    return Navigator.of(context).pushNamed('/newslist');
+  }
+
   Widget build(context) {
     return new Scaffold(
       appBar: AppBar(
@@ -102,7 +107,13 @@ class AnimationPageState extends State<AnimationPage>
           child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Text("Tap anywhere", style: TextStyle(color: Colors.white)),
+          RaisedButton(
+              color: Colors.blue,
+              onPressed: () {
+                routeToNewsList(context);
+              },
+              child: Text("Checkout some News",
+                  style: TextStyle(color: Colors.white))),
         ],
       )),
     );
