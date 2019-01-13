@@ -6,6 +6,7 @@ import '../widgets/refresh.dart';
 class NewsList extends StatelessWidget {
   Widget build(context) {
     final bloc = StoriesProvider.of(context);
+    bloc.fetchTopIds();
     return Scaffold(
       appBar: AppBar(
         title: Text('Top News'),
@@ -28,6 +29,7 @@ class NewsList extends StatelessWidget {
           child: ListView.builder(
             itemCount: snapshot.data.length,
             itemBuilder: (context, int index) {
+              bloc.fetchItem(snapshot.data[index]);
               return NewsListTile(
                 itemId: snapshot.data[index],
               );
