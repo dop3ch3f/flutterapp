@@ -45,6 +45,12 @@ class NewsListTile extends StatelessWidget {
               Text('${item.descendants}'),
             ],
           ),
+          onTap: () {
+            Navigator.pushNamed(context, '/newslist/${item.id}');
+          },
+          onLongPress: () {
+            Navigator.pushNamed(context, '/newslist/${item.id}');
+          },
         ),
         Divider(
           height: 8.0,

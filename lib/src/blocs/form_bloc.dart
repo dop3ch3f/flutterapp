@@ -6,7 +6,7 @@ import 'package:rxdart/rxdart.dart';
 class Bloc with ValidationMixin {
   final _email = BehaviorSubject<
       String>(); //RxDart's implementation of StreamController. Broadcast stream by default
-  final _password = BehaviorSubject<String>(); 
+  final _password = BehaviorSubject<String>();
 
   // Add data to Stream
   Stream<String> get email => _email.stream.transform(validateEmail);
