@@ -4,7 +4,7 @@ import './pages/pics.dart';
 import './pages/login.dart';
 import './pages/animation_page.dart';
 import './pages/news_list.dart';
-import './pages/newslist_details.dart';
+import './pages/news_details.dart';
 //providers
 import './blocs/form_provider.dart';
 import './blocs/stories_provider.dart';
@@ -48,6 +48,8 @@ class App extends StatelessWidget {
       });
     } else if (settings.name == '/newslist') {
       return MaterialPageRoute(builder: (context) {
+        final bloc = StoriesProvider.of(context);
+        bloc.fetchTopIds();
         return NewsList();
       });
     } else if (RegExp(
@@ -55,9 +57,12 @@ class App extends StatelessWidget {
       caseSensitive: true,
       multiLine: false,
     ).hasMatch(settings.name)) {
-      final List<String> array = settings.name.split("/");
-      final int itemId = int.tryParse(array[2]);
       return MaterialPageRoute(builder: (context) {
+        final List<String> array = settings.name.split("/");
+        final int itemId = int.tryParse(array[2]);
+        final commentsBloc = CommentsProvider.of(context);
+        commentsBloc.fetchItemWithComments(itemId);
+
         return NewsDetail(
           itemId: itemId,
         );
